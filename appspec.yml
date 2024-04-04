@@ -1,0 +1,32 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html # EC2 인스턴스에 index.html을 배포할 디렉터리입니다.
+permissions:
+  - object: /var/www/html
+    pattern: "**"
+    owner: apache
+    group: apache
+    mode: 777
+hooks:
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      timeout: 60
+      runas: root
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 60
+      runas: root
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 30
+      runas: root
