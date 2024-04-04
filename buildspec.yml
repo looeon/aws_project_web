@@ -11,11 +11,11 @@ phases:
   pre_build:
     commands:
       - echo "Download and install Tomcat connector..."
-      - cd /home/ec2-user && wget https://dlcdn.apache.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.49-src.tar.gz
-      - tar -xzf /home/ec2-user/tomcat-connectors-1.2.49-src.tar.gz
-      - cd /home/ec2-user/tomcat-connectors-1.2.49-src/native && ./configure --with-apxs=/usr/bin/apxs
-      - cd /home/ec2-user/tomcat-connectors-1.2.49-src/native && make
-      - cd /home/ec2-user/tomcat-connectors-1.2.49-src/native && sudo make install
+      - cd /tmp && wget https://dlcdn.apache.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.49-src.tar.gz
+      - tar -xzf /tmp/tomcat-connectors-1.2.49-src.tar.gz
+      - cd /tmp/tomcat-connectors-1.2.49-src/native && ./configure --with-apxs=/usr/bin/apxs
+      - cd /tmp/tomcat-connectors-1.2.49-src/native && make
+      - cd /tmp/tomcat-connectors-1.2.49-src/native && sudo make install
   build:
     commands:
       - echo "Configure Apache settings..."
