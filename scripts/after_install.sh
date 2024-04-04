@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Apache 서비스 시작
-sudo systemctl start httpd
 echo "Configure Apache settings..."
 sudo cat <<EOF1 > /etc/httpd/conf/workers.properties
 worker.list=worker1
