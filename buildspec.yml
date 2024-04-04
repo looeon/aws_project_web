@@ -16,11 +16,6 @@ phases:
       - cd /tmp/tomcat-connectors-1.2.49-src/native && ./configure --with-apxs=/usr/bin/apxs
       - cd /tmp/tomcat-connectors-1.2.49-src/native && make
       - cd /tmp/tomcat-connectors-1.2.49-src/native && sudo make install
-  post_build:
-    commands:
-      - echo "Starting Apache server..."
-      - sudo systemctl start httpd
-      - sudo systemctl enable httpd
 artifacts:
   files:
     - '**/*'
